@@ -1,0 +1,128 @@
+base:
+  is_debug:
+  domain:
+  max_concurrency:
+
+http:
+  port:
+
+mysql:
+  username:
+  password:
+  host:
+  port:
+  dbname:
+  charset:
+
+mongodb:
+  dsn:
+  database:
+  pool_size:
+
+jwt:
+  issuer:
+  secret:
+
+prometheus:
+  host:
+  port:
+
+es:
+  host:
+  username:
+  password:
+  index:
+  size:
+
+clients:
+  runner:
+    run_api:
+    run_scene:
+    stop_scene:
+    run_plan:
+    stop_plan:
+  manager:
+    domain:
+
+proof:
+  info_log:
+  err_log:
+
+log:
+  InfoPath:
+  ErrPath:
+
+redis:
+  address:
+  password:
+  db:
+
+redisReport:
+  address:
+  password:
+  db:
+
+smtp:
+  host:
+  port:
+  email:
+  password:
+
+sms:
+  id:
+  secret:
+
+inviteData:
+  AesSecretKey:
+
+pay:
+  Business:
+  Theme:
+  PayNotifyApi:
+  CreateOrderApi:
+  SelectOrderPayResultApi:
+  CloseOrderApi:
+
+geeTest:
+  #geetest 公钥
+  #geetest public key
+  CaptchaID:
+  #geetest 密钥
+  #geetest key
+  CaptchaKey:
+  #geetest 服务地址
+  #geetest server address
+  ApiServer:
+
+wechatLogin:
+  WechatLoginQrCodeApi:
+  WechatScanResultApi:
+
+#初始化压力机可使用分区
+canUsePartitionTotalNum:
+
+#单台压力机能快速负载的并发数
+oneMachineCanConcurrenceNum:
+
+#运行计划相关配置
+machineConfig:
+  MachineAliveTime: 10      # 压力机上报心跳超时时间，单位：秒
+  InitPartitionTotalNum: 2  # 初始化可用kafka分区数量设置
+  CpuTopLimit: 65           # 可参与压测的压力机cpu使用率上限
+  MemoryTopLimit: 65        # 可参与压测的压力机memory使用率上限
+  DiskTopLimit: 55          # 可参与压测的压力机disk使用率上限
+
+# 默认用户登录token的失效时间（单位：小时）
+defaultTokenExpireTime: 24
+
+# 保留性能测试的debug日志时间（单位：月）
+keepStressDebugLogTime: 1
+
+# 企业操作日志展示时间（单位：天）
+companyOperationLogTime: 7
+
+# 企业初始化数据
+companyInitConfig:
+  Account:
+  Password:
+  Name:

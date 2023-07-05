@@ -1,0 +1,41 @@
+2023-06-26T15:22:05.384+0800	[31mERROR[0m	[Recovery from panic]	{"time": "2023-06-26T15:22:05.383+0800", "error": "runtime error: invalid memory address or nil pointer dereference", "request": "GET /permission/api/v1/notice/get_third_users?notice_id=334bb946-1d40-4816-823c-c38cbddb42db&%E4%BD%A0%E5%A5%BD%E5%90%97= HTTP/1.1\r\nHost: 127.0.0.1:8083\r\n123: \r\nAccept: */*\r\nAccept-Encoding: gzip, deflate, br\r\nAuthorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODkzMTA2NTksImlhdCI6MTY4NjcxODY1OSwiaXNzIjoia3AiLCJuYmYiOjE2ODY3MTg2NTksInVzZXJfaWQiOiJiNjU1ZDZkNy1iZmRhLTQxOGItYTcwMC0wYWI2MzYwZGE4MjAifQ.iE4tLxVK-l00enzY6OKwjeofc-V385vkEmwx0-4-PGs\r\nCache-Control: no-cache\r\nConnection: keep-alive\r\nCookie: age=1\r\nRequest: name\r\nUser-Agent: PostmanRuntime-ApipostRuntime/1.1.0\r\n\r\n", "stack": "goroutine 71 [running]:\nruntime/debug.Stack()\n\t/usr/local/go/src/runtime/debug/stack.go:24 +0x68\ngithub.com/gin-contrib/zap.CustomRecoveryWithZap.func1.1()\n\t/Users/zhaokai/go/pkg/mod/github.com/gin-contrib/zap@v0.1.0/zap.go:146 +0x2a0\npanic({0x105e3ce20, 0x106781c70})\n\t/usr/local/go/src/runtime/panic.go:838 +0x204\npermission-open/internal/pkg/logic/third.GetFerShuUsers({0x105fcfea0, 0x140000c3700}, {0x14000148420?, 0x105d9b0a0?}, {0x1400050e160?, 0x105f48620?})\n\t/Users/zhaokai/worker/RunnerGo-permission-open/internal/pkg/logic/third/feishu.go:30 +0x710\npermission-open/internal/pkg/logic/notice.GetThirdUsers({0x105fcfea0, 0x140000c3700}, {0x14000136038, 0x24})\n\t/Users/zhaokai/worker/RunnerGo-permission-open/internal/pkg/logic/notice/notice.go:195 +0x2f4\npermission-open/internal/pkg/handler.GetThirdNoticeUsers(0x14000136004?)\n\t/Users/zhaokai/worker/RunnerGo-permission-open/internal/pkg/handler/notice.go:131 +0x68\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/zhaokai/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173\npermission-open/internal/app/middleware.CheckPermission.func1(0x140000c3700)\n\t/Users/zhaokai/worker/RunnerGo-permission-open/internal/app/middleware/permission.go:87 +0xfe4\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/zhaokai/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173\npermission-open/internal/app/middleware.JWT.func1(0x140000c3700)\n\t/Users/zhaokai/worker/RunnerGo-permission-open/internal/app/middleware/jwt.go:70 +0x109c\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/zhaokai/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173\ngithub.com/gin-contrib/zap.CustomRecoveryWithZap.func1(0x140000c3700)\n\t/Users/zhaokai/go/pkg/mod/github.com/gin-contrib/zap@v0.1.0/zap.go:158 +0x8c\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/zhaokai/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173\ngithub.com/gin-contrib/zap.GinzapWithConfig.func1(0x140000c3700)\n\t/Users/zhaokai/go/pkg/mod/github.com/gin-contrib/zap@v0.1.0/zap.go:55 +0xa0\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/zhaokai/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173\ngithub.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0x14000582680, 0x140000c3700)\n\t/Users/zhaokai/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/gin.go:616 +0x568\ngithub.com/gin-gonic/gin.(*Engine).ServeHTTP(0x14000582680, {0x105fcea58?, 0x140000c47e0}, 0x140000c3600)\n\t/Users/zhaokai/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/gin.go:572 +0x1d8\nnet/http.serverHandler.ServeHTTP({0x1401481d230?}, {0x105fcea58, 0x140000c47e0}, 0x140000c3600)\n\t/usr/local/go/src/net/http/server.go:2916 +0x3fc\nnet/http.(*conn).serve(0x140005b66e0, {0x105fcfce0, 0x1401481d140})\n\t/usr/local/go/src/net/http/server.go:1966 +0x56c\ncreated by net/http.(*Server).Serve\n\t/usr/local/go/src/net/http/server.go:3071 +0x450\n"}
+github.com/gin-contrib/zap.CustomRecoveryWithZap.func1.1
+	/Users/zhaokai/go/pkg/mod/github.com/gin-contrib/zap@v0.1.0/zap.go:142
+runtime.gopanic
+	/usr/local/go/src/runtime/panic.go:838
+runtime.panicmem
+	/usr/local/go/src/runtime/panic.go:220
+runtime.sigpanic
+	/usr/local/go/src/runtime/signal_unix.go:818
+permission-open/internal/pkg/logic/third.GetFerShuUsers
+	/Users/zhaokai/worker/RunnerGo-permission-open/internal/pkg/logic/third/feishu.go:30
+permission-open/internal/pkg/logic/notice.GetThirdUsers
+	/Users/zhaokai/worker/RunnerGo-permission-open/internal/pkg/logic/notice/notice.go:195
+permission-open/internal/pkg/handler.GetThirdNoticeUsers
+	/Users/zhaokai/worker/RunnerGo-permission-open/internal/pkg/handler/notice.go:131
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/zhaokai/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173
+permission-open/internal/app/middleware.CheckPermission.func1
+	/Users/zhaokai/worker/RunnerGo-permission-open/internal/app/middleware/permission.go:87
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/zhaokai/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173
+permission-open/internal/app/middleware.JWT.func1
+	/Users/zhaokai/worker/RunnerGo-permission-open/internal/app/middleware/jwt.go:70
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/zhaokai/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173
+github.com/gin-contrib/zap.CustomRecoveryWithZap.func1
+	/Users/zhaokai/go/pkg/mod/github.com/gin-contrib/zap@v0.1.0/zap.go:158
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/zhaokai/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173
+github.com/gin-contrib/zap.GinzapWithConfig.func1
+	/Users/zhaokai/go/pkg/mod/github.com/gin-contrib/zap@v0.1.0/zap.go:55
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/zhaokai/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/Users/zhaokai/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/gin.go:616
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/Users/zhaokai/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/gin.go:572
+net/http.serverHandler.ServeHTTP
+	/usr/local/go/src/net/http/server.go:2916
+net/http.(*conn).serve
+	/usr/local/go/src/net/http/server.go:1966
