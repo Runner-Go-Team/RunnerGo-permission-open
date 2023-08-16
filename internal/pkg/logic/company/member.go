@@ -81,12 +81,13 @@ func SaveMember(ctx *gin.Context, userID string, req rao.CompanySaveMemberReq) (
 	timeNow := time.Now()
 	rand.Seed(timeNow.UnixNano())
 	user := model.User{
-		UserID:   uuid.GetUUID(),
-		Email:    "",
-		Account:  req.Account,
-		Password: hashedPassword,
-		Nickname: req.Nickname,
-		Avatar:   consts.DefaultAvatarMemo[rand.Intn(3)],
+		UserID:      uuid.GetUUID(),
+		Email:       "",
+		Account:     req.Account,
+		Password:    hashedPassword,
+		Nickname:    req.Nickname,
+		Avatar:      consts.DefaultAvatarMemo[rand.Intn(3)],
+		LastLoginAt: timeNow,
 	}
 
 	// 邮箱

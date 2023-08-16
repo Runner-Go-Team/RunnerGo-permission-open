@@ -83,8 +83,9 @@ func SaveTeam(ctx *gin.Context, req *rao.SaveTeamReq) (string, error) {
 		// step2: 新建用户团队关系
 		userTeams := make([]*model.UserTeam, 0, 2)
 		userTeams = append(userTeams, &model.UserTeam{
-			TeamID: teamID,
-			UserID: userID,
+			TeamID:     teamID,
+			UserID:     userID,
+			InviteTime: time.Now(),
 		})
 
 		// 超级管理员添加进去
